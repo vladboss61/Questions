@@ -1,0 +1,486 @@
+Hints: Prepare you in the best possible way.
+There are bunch of cause thinks you can do.
+We are going to add ...
+
+Semaphore, Mutex, Db Connections, Files - its all system resources and we should free it by our self. 
+
+Invterview Questions.
+
+decimal number.
+100 / 100 / 10 / 1
+binary number.
+16 / 8 / 4 / 2 / 1
+hexadecimal number.
+4096 / 256 / 16 / 1
+
+===================================================================================
+OOD / OOP
+===================================================================================
+1) The four principles of object-oriented programming (abstraction, inheritance, encapsulation, and polymorphism). --
+2) SOLID - 
+3) Abstract class vs Interface. +-
+4) Sealed - 
+5) Extension methods-
+6) Method vs static method, difference-
+
+Truth table
+===================================================================================
+Boolean logic (truth tables)
+===================================================================================
+1) AND, OR, XOR
+
+& AND operator+
+----------------
+0 & 0  =
+0 & 1  =
+1 & 0  =
+1 & 1  =
+
+
+| OR operator+
+----------------
+0 | 0  =
+0 | 1  =
+1 | 0  =
+1 | 1  =
+
+
+^ XOR operator+
+----------------
+0 ^ 0  =
+0 ^ 1  =
+1 ^ 0  =
+1 ^ 1  =
+
+===================================================================================
+C#
+===================================================================================
+0) Value Types vs Reference Types. +-
+1) & vs &&
+2) 
+    byte b; //8 bit +
+    short s; //2 byte
+    int i; //4 byte + 
+    long l; //8 byte
+3) 
+
+//prefix ++i and postfix i++ forms.
+private static void Main(string[] args) + 
+{
+    var i = 5;
+    var a = i++;
+    var b = ++i;
+    Console.WriteLine($"a={a} b={b}");
+}
+
+private static void Main(string[] args)-
+{
+    var a = 10;
+    var b = 1;
+    var c = b = a;
+    Console.WriteLine($"b={b} c={c}");
+}
+
+4) int x = 0x21; -  ~ // 16 system -> 0x21 = 2 * 16^1 + 1 * 16^0 = 32 + 1 = 33 in 10 system+
+5)
+ int y = 5 & 1;// 1   // 5 -> 101 = (1 * 2^2) + (0 * 2^1) + (1 * 2^0) = 5 || 101 & 001 = 001 == 1 
+ int y_y = 5 | 1; //   // 5; 
+ int z = 5 | 2; 101 | 010 == 7
+6) int x = 5 >> 1; +
+7) int x = a ^ b ^ b;
+
+8) IDisposable (https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)-----
+9) Managed vs Unmanaged resources
+10) Boxing/Unboxing, - 
+11) using() {} 
+12) try-catch-finally, does finally always work? what about exception in catch? 
+13) immutable strings / StringBuilder ~ +-
+
+string s = ""; 
+for(int i=0;i<1000000;i++) {
+    s += i.ToString();
+}
+// Drawbacks
+
+14) is c# string reference type? what about TypeScript?
+15) continue vs break in loops +-
+16) Reflection & Attributes
+17) Delegate vs Event
+
+===================================================================================
+Algorithms
+===================================================================================
+1) List vs Array +-
+2) Stack
+3) Dictionary (benefits)
+4) Tree
+5) Linear Search vs Binary Search +
+
+===================================================================================
+.NET Core
+===================================================================================
+1)
+"ASPNETCORE_ENVIRONMENT": "Development"
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) +
+        {
+            if (env.IsDevelopment()) { }
+            else { }
+        }
+
+
+
+        public void ConfigureServices(IServiceCollection services) -
+        {
+        }
+
+        public void ConfigureDevelopmentServices(IServiceCollection services)
+        {
+        }
+
+        public void ConfigureDemoServices(IServiceCollection services)
+        {
+        }
+
+
+2)
+            services + подсмотрел 
+                .AddTransient<ICotRenderer, ExcelCotRenderer>()-
+                .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()-
+                .AddScoped<ITokenSource, HttpContextTokenSource>();-
+
+===================================================================================
+CSS and web layout
+===================================================================================
+1) CSS (position: fixed, static, relative, absolute)
+<body>
+  <div id="d1" style="position: fixed">
+    <div id="d2" style="position: relative">
+      <div id="d3">
+        <div id="d4" style="position: absolute; left: 10px; top: 10px;"
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+2) colors #ff0000, #cccccc, #000000
+colors #0000ff, #000000 (black), #ffffff (white), #cccccc
+
+3) JPG, BMP, GIF, PNG, TIF, ICO, SVG
+4) box model
+margin|border|padding| content |padding|border|margin
+
+.z {width:100px;border:10px;margin:10px;}
+<div class="z"></div>
+
+box-sizing: border-box; //in Boostrap
+vs
+box-sizing: content-box;
+
+5) em vs rem -
+6) Multiple classes on an element?
+
+<div></div> please apply class myClass to the div
+<div class="aaa"></div>
+<div class="aaa bbb"></div>
+
+7) Difference + 
+.aaa {}
+#aaa {}
+aaa {}
+
+8) Difference
+.aaa { color: red;}
+.bbb { font-weight: bold; }
+.aaa.bbb { color: lime; }
+
+9) +--
+visibility: hidden 
+display: none
+
+
+
+
+===================================================================================
+JavaScript / Angular
+===================================================================================
+1)
+let i = 5;
+let a = i++;
+let b = ++i;
+console.log(a, b)
+2)
+let x = 5 & 1;
+let y = 5 | 2;
+console.log(x, y)
+3) string - reference or value type?
+4) JS array: shift, unshift, push, pop, filter, map - what are they doing?
+5) spread
+const a1 = [1, 2, 3];
+const a2 = [5, ...a1, 6]; - 
+console.log(a2);
+7) spread
+const o1 = {a:1, b:2, animals:['dog', 'cat']};
+const o2 = {...o1};
+o1.animals[0] = 'mouse';
+console.log(o2);
+8) Observable (emit a lot) vs Promise (emit once)
+9) == vs === 
+console.log(0 == '0');
+console.log(0 === '0');
+// true
+// false
+
+6) !!
+
+        switchMap((loggedUserRole?: string) => {
+          this.isHideUnhideImportAllowed =  !!loggedUserRole
+        }-
+
+7) what is ?
+this.serviceContractsSubscription?.unsubscribe();
+
+8) lodash
+9) rxjs (switchMap vs concatMap)
+10) NgRX (pure functions, reducers)
+11) NgRX effects
+12) local storage / session storage - 
+14) params to a pipe
+dateFormatter: loggedUser?.timeZone
+{{cot?.lastConnected | dateFormatter: loggedUser?.timeZone : '-'}}
+15) change detection ChangeDetectionStrategy.OnPush (ChangeDetectionStrategy.Default)
+
+@Component({
+  selector: 'app-details-row',
+  templateUrl: './details-row.component.html',
+  styleUrls: ['./details-row.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class DetailsRowComponent {
+
+  @Input() htmlElementId?: string;
+  @Input() value?: any;
+  @Input() prefix?: string;
+  @Input() translateValue?: boolean;
+  @Input() rowTitle?: string;
+
+  isDefined = isDefined;
+
+  constructor() {
+  }
+
+}
+
+16) what are guards
+
+@Injectable()
+export class AuthGuard implements CanActivate {
+
+  constructor(
+    private readonly store: Store<AppState>,
+    private readonly router: Router) {
+  }
+
+  canActivate(activatedRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    return this.store.select(isUserLoggedInSelector)
+      .pipe(
+        map((isUserLoggedIn: boolean) => {
+          if (isUserLoggedIn) {
+            return true;
+          }
+          this.router.navigateByUrl('/');
+          return false;
+        })
+      );
+  }
+}
+
+const routes: Routes = [
+  { path: '', component: LoginComponent },
+  { path: 'cots', component: CotsComponent, canActivate: [AuthGuard] },
+  { path: 'map', component: MapComponent, canActivate: [AuthGuard] },
+  { path: 'cot-details/:serialNumber', component: CotDetailsComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '/cots' }
+];
+
+  {
+    path: 'impressions', component: ImpressionsComponent, canActivate: [AuthGuard], canDeactivate: [CanDeactivateGuard],
+    data: { requiredAuthScope: UserAuthScope.AccountConfigImpressionsGet }
+  },
+22) what will be the link equipment-details/{accountId}/{id}
+  navigateToEquipmentDetails(accountId: string, id: string): void {
+    this.router.navigate(['equipment-details', accountId, id]);
+  }
+23) window resize
+  @HostListener('window:resize', [])
+  onWindowSResize(): void {
+    this.refreshChart();
+  }
+24) what is async
+<div>{{ getChartPartTitle$(chartPart.localizationTitle) | async }}</div>
+25) ng-template
+
+  <div *ngIf="!isInsidePortal(); else forbidden"></div>
+
+  <ng-template # >
+    <div class="lf-some-class">
+        {{ 'ERROR_MESSAGE_FORBIDDEN' | translate }}
+    </div>
+  </ng-template>
+26) postMessage
+
+      const readyMessage = new AppMessageApplicationReady();
+      appFrameWindow.postMessage(readyMessage, '*');
+
+  @HostListener('window:message', ['$event'])
+  processWindowNotification(msg: any): void {
+    if (msg.data && msg.data.type === AppMessageType.UserUpdated) {
+    }}
+
+
+27) Arrow Function vs function keyword in JS ? -
+
+
+===================================================================================
+React
+===================================================================================
+1) Why the root element of a React component may be only one?
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+2) Why do we need state hooks in stateless components?
+3) What drives re-rendering of a React component
+
+4) map in React
+{props.items.map((tomato) => (
+    <Tomato color={item.color} size={item.size} />
+))}
+
+5) key in React
+{props.items.map((tomato) => (
+    <Tomato key={item.id} color={item.color} size={item.size} />
+))}
+
+
+
+
+===================================================================================
+REST & HTTP
+===================================================================================
+1) CORS (Cross-Origin Resource Sharing) +-
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Origin: <origin>
+Access-Control-Allow-Origin: null
+2) Who restricts CORS - a browser or a server?
+3) GET, POST, PUT, DELETE, PATCH, HEAD, OPTION
+4) Queries
+/tomatoes +-
+/tomatoes?color=red
+/hospitals/
+
+/hospitals?city=Bucharest
+/hospitals/12/
+/hospitals/12/users
+/hospitals/12/users/333
+
+5) GET vs POST with huge filtering lists
+
+
+===================================================================================
+Networking
+===================================================================================
+1) IP address (IPv4 (32bit) vs IPv6 (128bit)). Max number in x.y.w.z 
+ xxx.xxx.xxx.xxx (by 8 bit per xxx in 10 system),
+ xxxxxxxx.xxxxxxxx.xxxxxxxx.xxxxxxxx (by 8 bit per xxxxxxxx in 2 system)
+
+ xxxx.xxxx.xxxx.xxxx.xxxx.xxxx.xxxx.xxxx (by 16 bit per xxxx in 16hex system) by standard IPv6 writes in 16 system.
+
+ xxxxx.xxxxx.xxxxx.xxxxx.xxxxx.xxxxx.xxxxx.xxxxx - in 10 system IPv6
+ x(16).x(16).x(16).x(16).x(16).x(16).x(16).x(16) - in 2 system IPv6
+
+192.168.0.1/16 what is it ?
+
+
+2) How many bits in 1 byte?
+3) Max number in a byte? 2^8 =
+4) Cookies - what are they? How do they come to our client computer? Are they stored on a client or travel back to the server? -
+
+
+
+===================================================================================
+Cryptography -
+===================================================================================
+1) What is a one way hash function?
+2) Why we store hash instead of a plain password in the database?
+3) Hash + Salt, why do we need salt?
+4) SHA1 vs SHA256 vs SHA512 footprint length (160 bits vs 256 bits vs 512 bits) - 
+5) Asymmetric keys (public key vs private key) 
+6) What are prime numers? (1, 2, 3, 5, 7, 11, 13, 17)
+
+7) Token authentication/authorization
+
+
+===================================================================================
+XML
+===================================================================================
+1) XML well formed vs valid, how to present ", &, >   (&quot; &amp; &gt;)
+2) What is DTD or XML Schema?
+
+
+===================================================================================
+Databases SQL
+===================================================================================
+1) One to many in SQL
+
+School
+----------
+SchoolID
+SchoolName
+
+Pupil
+----------
+PupilID
+FirstName
+LastName
+
+2) Many to many in SQL
+3) How can we provide uniqueness in third table of many-many? (Primary key on both fields)
+4) Indexes log2 16 =    Users from (Anderson .. Zimmerman) +-
+5) Big O notation O(1), O(N), O(log N)-
+6) Why using of * is a bad idea?
+7) How many cluster indexes may a table have? Why?
+
+===================================================================================
+Databases NoSQL
+===================================================================================
+1) SQL vs NoSQL
+2) partition key/sort key (range key)
+3) What if we need to find by some non key property?
+
+Time zones
+===================================================================================
+1) TimeZones
+Kyiv (UTC+2)
+Bucarest (UTC+2)
+Warsaw (UTC+1)
+Lisbon (UTC+0)
+New-York (UTC-5)
+2) Is New York time behind Bucarest or ahead?
+3) Can we relate on the browser in time zones calculations?
+
+Code
+===================================================================================
+1) SonarQube
+2) PowerShell
+3) MarkDown
+
+GIT
+===================================================================================
+git add
+git commit,
+git push
+git pull
+git fetch
+
+Architecture
+===================================================================================
+1) CQRS 
+
