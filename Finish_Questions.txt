@@ -1,0 +1,16 @@
+
+
+1) Boxing vs unboxing
+2) Class vs Structure
+3) Delegate vs event
+4) Using and Dispose and Finalizer
+5) Private vs protected vs Public vs Internal
+6) Joins in sql
+7) Index in sql server (clustered vs unclustered)
+8) HTTP Verbs
+9) Post Vs Put verb
+10) Asp middleware
+11) Collections: List vs ArrayList vs Array vs Dictionary
+12) Lazy Evaluation in LINQ
+13) Bits in 1 Byte
+14) Block vs Inline Elements in HTML

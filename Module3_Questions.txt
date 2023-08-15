@@ -1,0 +1,41 @@
+0 List vs ArrayList collections
+
+1 List ( + методи) vs Array vs Dictionary ( + методи)
+
+2 Какие методы надо переопределить для того что бы использовать обьект как ключ в словаре ?
+
+3 Generics + where
+
+4 что такое in vs out возле дженерика  Function<in T> vs Function<out T>?
+
+5 delegates vs events
+
+6 GetInvocationList - что это ?
+
+7 как работает 
+func?.Invoke()
+
+8 static event
+
+9 какие делегаты ты помнишь ?
+Func vs Action vs EventHadler
+
+10 int [] ints = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 }
+   ints.Take(5).Where(x => x % 2 == 0).OrderByDescending().Select(x => new Person() { FieldX = x });
+
+11 как работает Aggregate - LINQ
+
+12 лямбда выражение vs функция, замыкание
+
+13 
+Thread vs Task
+lock vs mutex,
+SemaphoreSlim 
+
+14 Что может возвращать асинхронный метод ?
+
+15 Пример Ассинхронности
+
+16 Что такое Лениваость в Enumerable ?
+
+
