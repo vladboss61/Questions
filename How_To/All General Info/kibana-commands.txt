@@ -1,0 +1,396 @@
+#======================================
+# Cluster 
+
+#----------------------------------
+# Restore Elastic cluster from read-only mode
+
+PUT /_cluster/settings
+{
+  "persistent" : {
+    "cluster.blocks.read_only" : false
+  }
+}
+
+#----------------------------------
+# Cluster health
+
+GET /_cluster/health
+GET /_cat/nodes?v
+GET /_cat/indices?v
+
+#======================================
+# Generic Kibana
+
+#------------------------------------
+# Create index
+
+PUT /cotstest
+
+PUT /products # Create index
+{
+    "settings": {
+        "number_of_shards": 2,
+        "number_of_replicas": 2
+    }
+}
+
+#------------------------------------
+# Add object
+
+POST /products/_doc
+{
+    "name": "Coffee maker",
+    "price": 64,
+    "in_stock": 10
+}
+
+#------------------------------------
+# Replace whole object
+
+PUT /products/_doc/100
+{
+    "name": "Toaster",
+    "price": 49,
+    "in_stock": 4
+}
+
+#------------------------------------
+# Update an object's field (or add a field to the object)
+
+POST /products/_update/100 
+{
+    "doc": {
+        "in_stock": 3
+    }
+}
+
+#------------------------------------
+# Get by Id
+
+GET /products/_doc/12233002
+
+#------------------------------------
+# Delete index
+
+DELETE /cotstest
+
+#------------------------------------
+# Delete by Id
+
+DELETE /cots/_doc/12233002 - Delete by Id
+
+#========================================================
+# Cots
+
+GET /cots/_doc/12233002
+DELETE /cots/_doc/12233002
+
+GET /cots/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+POST /cots/_delete_by_query
+{
+  "query": {
+    "match": {
+      "accountId": "9f95745a-48da-4fb8-8b99-39d4ab4db9b9"
+    }
+  }
+}
+
+POST /cots/_delete_by_query
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+POST /cots/_delete_by_query {   
+"query": {     
+	"match": {       
+		"accountId": "e888f6ec-34cd-45b0-b465-5d219bf0d40a"     
+	 	 }   
+	}
+}
+
+#========================================================
+# ProCare Reporting
+
+GET /erp-equipment
+GET /erp-equipment/_count
+
+GET /erp-work-orders/_search - Показать данные
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+DELETE /erp-equipment
+DELETE /erp-work-orders
+
+GET _search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+
+GET /erp-equipment/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET /erp-work-orders/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET /erp-equipment/_search
+{
+  "from": 0,
+  "size": 100,
+  "sort" : [
+        { "shipDate.keyword" : {"order" : "desc"}}
+    ],  
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET /erp-equipment/_search
+{
+  "from": 0,
+  "size": 100,
+  "sort" : [
+        { "shipDate.keyword" : {"order" : "desc"}}
+    ],  
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "terms": {
+            "jdeNumber.keyword": [
+              "1243578"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+
+GET /erp-work-orders/_search
+{
+  "size": 0,
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "terms": {
+            "jdeNumber.keyword": [
+              "1151474", "2222", "1243578"
+            ]
+          }
+        }
+      ]
+    }
+  },  
+  "aggs": {
+    "workOrdersByType": {
+      "terms": { "field": "workOrderType.keyword" },
+      "aggs": {
+        "workedHours": {
+          "sum": {
+            "field": "workedHoursNumeric"
+          }
+        }
+      }
+    }
+  }
+}
+
+GET /erp-equipment/_search
+{
+  "size": 0,
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "terms": {
+            "jdeNumber.keyword": [
+              "1151474"
+            ]
+          }
+        }
+      ]
+    }
+  }, 
+  "aggs": {
+    "someAggregationName": {
+      "terms": { "field": "isContractActive.keyword" } 
+    }
+  }
+}
+
+GET /erp-equipment/_search
+{
+  "size": 0,
+  "aggs": {
+    "someAggregationName": {
+      "terms": { "size": 20,  "field": "serialNumber.keyword" } 
+    }
+  }
+}
+
+GET /erp-work-orders/_search
+{
+  "from": 0,
+  "size": 1000,
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET /erp-work-orders/_search
+{
+  "from": 0,
+  "size": 1000,
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "terms": {
+            "id": [
+              "e3b04851-72b8-4d56-8271-c4357be49a32/a4B0Z0000033KVPUA2"
+            ]
+          }
+        }
+      ]
+    }
+  }  
+}
+
+
+GET /erp-work-orders/_search
+{
+  "query": {
+    "query_string": {
+      "fields": [
+        "siteLocation",
+        "siteLocationWithJdeNumber",
+        "serialNumber",
+        "assetTag",
+        "modelNumber",
+        "workOrderNumber",
+        "workOrderType",
+        "billingCode",
+        "serviceDate",
+        "workedHours",
+        "totalPrice"
+      ],
+      "query": "*wo*",
+      "default_operator": "OR"
+    }    
+  },
+  "highlight": {
+    "force_source": "true", 
+    "fields": {
+        "siteLocationWithJdeNumber": {},
+        "serialNumber": {},
+        "assetTag": {},
+        "modelNumber": {},
+        "workOrderNumber": {},
+        "workOrderType": {},
+        "billingCode": {},
+        "serviceDate": {},
+        "workedHours": {},
+        "totalPrice": {}
+    }
+  },
+  "explain": true
+}
+
+
+
+
+PUT /erp-equipment
+PUT /erp-work-orders
+
+DELETE /erp-equipment-2
+DELETE /erp-work-orders-2
+
+POST /erp-equipment/_search?typed_keys=true
+
+GET /erp-equipment-2
+
+POST /erp-equipment/_delete_by_query
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+POST /erp-work-orders/_delete_by_query
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+#=======================================================
+# Beds
+
+GET /smartbeds/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+
+POST /smartbeds/_delete_by_query
+{
+  "query": {
+    "match": {
+      "serialNumber": "RND_5147079795"
+    }
+  }
+}
+
+GET /smartbeds/_search
+{
+  "query": {
+    "match": {
+      "serialNumber": "RND_5147079795"
+    }
+  }
+}
+
+GET /account-tree/_search
+{
+  "query": {
+    "match": {
+      "accountName": "WOSEM"
+    }
+  }
+}
+
+GET /accounts/_search
+{
+  "query": {
+    "match": {
+      "accountName": "WOSEM"
+    }
+  }
+}
+
+

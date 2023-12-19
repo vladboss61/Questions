@@ -1,0 +1,2 @@
+1) aws sso login --profile stryker-dev1
+2) aws s3 sync s3://dev1-app-config-repo-uw2/ C:\Local\S3-AppConfig\S3AppConfigRepo\ --profile stryker-dev1

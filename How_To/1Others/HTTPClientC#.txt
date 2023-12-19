@@ -1,0 +1,17 @@
+// Delete wtih body.
+HttpRequestMessage request = new HttpRequestMessage
+{
+    Content = new StringContent("[YOUR JSON GOES HERE]", Encoding.UTF8, "application/json"),
+    Method = HttpMethod.Delete,
+    RequestUri = new Uri("[YOUR URL GOES HERE]")
+};
+await httpClient.SendAsync(request);
+
+// Get wtih body.
+HttpRequestMessage request = new HttpRequestMessage
+{
+    Content = new StringContent("[YOUR JSON GOES HERE]", Encoding.UTF8, "application/json"),
+    Method = HttpMethod.Get,
+    RequestUri = new Uri("[YOUR URL GOES HERE]")
+};
+await httpClient.SendAsync(request);

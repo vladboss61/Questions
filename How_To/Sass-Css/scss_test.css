@@ -1,0 +1,29 @@
+.inside_vars {
+  display: block;
+  background-color: red;
+  background-color: black;
+  width: 100%;
+}
+
+.content_passed {
+  text-align: center;
+}
+
+.content_passed {
+  display: flex;
+  text-align: center;
+}
+
+textarea {
+  display: block;
+  background-color: red;
+}
+textarea #somethign {
+  text-align: center;
+}
+
+div div {
+  background-color: white;
+}
+
+/*# sourceMappingURL=scss_test.css.map */

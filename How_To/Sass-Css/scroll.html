@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #body {
+        position: absolute;
+        top: 150px;
+        left: 150px;
+        height: 300px;
+        width: 500px;
+        border: black dashed 2px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #head {
+        border: green solid 1px;
+    }
+    
+    #content{
+        border: red solid 1px;
+        overflow-y: auto;
+        /*height: 100%;*/
+    }
+    
+    #foot {
+        border: blue solid 1px;
+        height: 50px;
+        flex-shrink: 0;
+    }
+</style>
+<body>
+    <div id="body">
+        <div id="head">
+            <p>Dynamic size without scrollbar</p>
+            <p>Dynamic size without scrollbar</p>
+            <p>Dynamic size without scrollbar</p>  
+        </div>
+        <div id="content">
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+            <p>Dynamic size with scrollbar</p>
+        </div>
+        <div id="foot">
+            <p>Fixed size without scrollbar</p>
+            <p>Fixed size without scrollbar</p>
+        </div>  
+    </div>
+</body>
+</html>

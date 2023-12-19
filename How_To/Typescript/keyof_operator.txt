@@ -1,0 +1,13 @@
+type Persone = {
+	name: string,
+	age: number,
+	location: string
+}
+
+//keyof Persone returns the union of all keys inside Person, PersonKeys = "name" | "age" | "location"
+const PersonKeys = keyof Persone
+
+// Some should also get everything from Person type.
+function log<Some extends Person>(s: Some) {
+... implementation
+}

@@ -1,0 +1,8 @@
+//"eslint": "7.32.0"- npm package
+eslint src --ext js,ts,tsx
+
+//ng lint under the hood executes eslint but by special class in .js script file
+-- see https://github.com/angular-eslint/angular-eslint/blob/master/packages/builder/src/lint.impl.ts 
+
+// prettier is tool and npm package.
+prettier --write .

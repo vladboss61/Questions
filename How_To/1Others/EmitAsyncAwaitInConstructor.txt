@@ -1,0 +1,19 @@
+    private readonly Lazy<Task<SoftwareTool[]>> _softwareToolsLazy;
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="LocalSoftwareToolsRepository" /> class.
+    /// </summary>
+    /// <param name="env">The web host environment.</param>
+    public LocalSoftwareToolsRepository(IHostEnvironment env)
+    {
+        string filePath = Path.Combine(env.ContentRootPath, "Data", "software-tools.json");
+
+        _softwareToolsLazy = new Lazy<Task<SoftwareTool[]>>(
+            async () => JsonConvert.DeserializeObject<SoftwareTool[]>(await File.ReadAllTextAsync(filePath)));
+    }
+
+    /// <inheritdoc />
+    public Task<SoftwareTool[]> GetSoftwareToolsConfiguration()
+    {
+        return _softwareToolsLazy.Value;
+    }

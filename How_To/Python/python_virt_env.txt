@@ -1,0 +1,11 @@
+virtualenv venv -q -p python3 # dash -q for 'queit'
+python -m unittest test_tablib.py # run unit tests.
+
+Retriev Flask from GitHub:
+$ git clone https://github.com/pallets/flask.git
+$ virtualenv venv
+$ source venv/bin/activate
+(venv)$ cd flask
+(venv)$ pip install --editable .
+(venv)$ pip install -r test-requirements.txt # Required for unit tests
+(venv)$ py.test tests # Запускаем юнит-тесты

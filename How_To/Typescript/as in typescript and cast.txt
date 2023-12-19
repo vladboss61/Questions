@@ -1,0 +1,5 @@
+let numStr = '123'
+const number1 = numStr as number //  type assertion operation
+const number2 = <number>numStr //  type assertion operation also (does not recommended, does not work in TSX files.)
+const number3 = +numStr // type casting
+// NOTE: type assertion operation is not the same with type casting.

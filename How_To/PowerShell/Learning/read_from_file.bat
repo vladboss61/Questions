@@ -1,0 +1,1 @@
+pwsh.exe .\read_from_file.ps1

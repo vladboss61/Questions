@@ -1,0 +1,9 @@
+To restore packages from nuget.physio-labs.com we need 
+Stryker GlobalProtect VPN  and correct credentials from gitlab.com site + update creds in Windows Credential Manager
+Now creds:
+
+vladyslav.varvashenko
+Reset_Blade_24
+
+
+	

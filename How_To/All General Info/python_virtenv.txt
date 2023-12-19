@@ -1,0 +1,14 @@
+py -m venv env - //creates virtual environmet (`env` folder) locally where packages are stored.
+env/scripts/activate.ps1 //  run  all comamnds accring to created env.
+
+//Notice: /env, /venv, /Env are names well-known for virtual envirinment and these folders 
+// are also placed in .gitignire
+
+pip install -r .\requirements.txt //  install packages in site-packages folder
+// if virtula env is not exist installs packages globally in c:\python somewhere there.
+
+
+- pip install -r requirements.txt // install dependencies
+- py -m venv .venv // create virtual env
+- .venv\scripts\activate // activate virtual env
+- flask run -- run flusk application

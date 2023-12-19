@@ -1,0 +1,23 @@
+import MarkerClusterer from '@google/markerclusterer';
+    /// <summary>
+    ///     Represents a geographical location that is determined by latitude and longitude coordinates.
+    /// </summary> 
+public sealed class OasGpsLocation
+    {
+        /// <summary>
+        ///     Gets or sets the latitude of the location.
+        /// </summary>
+        [Range(-90, 90)]
+        public float? Latitude { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the longitude of the location.
+        /// </summary>
+        [Range(-180, 180)]
+        public float? Longitude { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the GNSS last location timestamp.
+        /// </summary>
+        public ulong? GnssLastLocationTimestamp { get; set; }
+    }

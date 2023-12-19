@@ -1,0 +1,25 @@
+{
+    "Far": {
+        "shift+F8": "Change encoding (first off open file with F4)"
+    },
+    "Resharper": {
+        "shift+T": "Glolbal search"
+    },
+    "envs": {
+        "Serilog:WriteTo:0:Args:OutputTemplate": "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} {NewLine}{Exception}",
+        "Serilog:WriteTo:0:Args:Theme": "Serilog.Sinks.SystemConsole.Themes.AnsiConsoleTheme::Code, Serilog.Sinks.Console",
+        "Serilog:WriteTo:0:Name": "Console"
+    },
+    "Vs code": {
+        "ctrl + shift  + l  // select all matched words according to search result." 
+    }, 
+    "NPM": [
+        "npm install --production // will install not dev Dependencies (just dependencies)",
+        "npm view `package_name (for instance @angular/core or moment or file-saver)` versions //  list of all available versions",
+        "npm install --save-dev //  install only dev dependencies.",
+        "npm npm uninstall  `name_of_package`",
+        "package-lock is needed for keeping the tree of all installed dependencies.",
+        "npm update -- will perform update on all listed packages to the latest version.",
+        "npm update <package> -- will update specific package."
+    ]
+}

@@ -1,0 +1,50 @@
+//Bogus nuget package for generating real data, also good AutoFixture.
+
+        var oasStretcherFaultsFaker = new Faker<OasStretcherFaults>();
+
+        oasStretcherFaultsFaker
+            .RuleFor(x => x.ErrorList, f => Enumerable.Repeat("3009-1-5-1306", 30).ToArray());
+
+        var faker = new Faker<OasStretcher>();
+
+        short orderIds = 0;
+        faker
+            .RuleFor(x => x.Rssi, f => orderIds++)
+            .RuleFor(x => x.Manufacturer, f => "Manufacturer")
+            .RuleFor(x => x.AccountId, f => Guid.NewGuid().ToString())
+            .RuleFor(x => x.Location, f => Guid.NewGuid().ToString())
+            .RuleFor(x => x.SiteId, f => Guid.NewGuid().ToString())
+            .RuleFor(x => x.SiteName, f => $"Site_Name_{orderIds}")
+            .RuleFor(x => x.EapType, f => $"EapType_{orderIds}")
+            .RuleFor(x => x.StretcherSerialNumber, f => $"SV_SerialNumber{orderIds}")
+            .RuleFor(x => x.AcAverageTime, f => f.Random.Short(0, 2000))
+            .RuleFor(x => x.AcTotalTime, f => f.Random.Short(0, 2000))
+            .RuleFor(x => x.ArmDisarmButtonPresses, f => f.Random.Short(0, 2000))
+            .RuleFor(x => x.BedExitActiveAverageTime, f => f.Random.Short(0, 2000))
+            .RuleFor(x => x.BatteryAverageTime, f => f.Random.Short(0, 2000))
+            .RuleFor(x => x.BedExitZone, f => f.Random.Byte(0, 200))
+            .RuleFor(x => x.ChaperoneSoftwareVersion, f => "ChaperoneSoftwareVersion")
+            .RuleFor(x => x.CountryCode, f => "US")
+            .RuleFor(x => x.GatewayMacAddress, f => f.Internet.Mac())
+            .RuleFor(x => x.GatewayIpAddress, f => f.Internet.Ip())
+            .RuleFor(
+                x => x.LastLoggedWeight,
+                f => new OasLastLoggedWeight
+                {
+                    LastLoggedWeightKg = f.Random.Double(0, 80),
+                    LastLoggedWeightLb = f.Random.Double(0, 80)
+                })
+            .RuleFor(
+                x => x.OptimusButtonPresses,
+                f => new OasOptimusButtonPresses
+                {
+                    ArmDisarmButton = true,
+                    LbKgButton = false,
+                    WeighButton = true,
+                    ZeroButton = false
+                })
+            .RuleFor(x => x.DisplayControllerSwVersion, f => "V.1.0.0")
+            .RuleFor(x => x.StretcherFaults, f => oasStretcherFaultsFaker);
+
+        List<OasStretcher> generated = faker.Generate(25);
+        File.WriteAllText("D:\\generated.json", JsonConvert.SerializeObject(generated));

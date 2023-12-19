@@ -1,0 +1,132 @@
+// Remove Read-Only status of cluster.
+GET /_cluster/health
+
+PUT /_cluster/settings
+{
+  "persistent" : {
+    "cluster.blocks.read_only" : false
+  }
+}
+
+// SEARCH
+GET _search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET _search
+{
+  "query": {
+    "match": {
+      "serialNumber": "RND_298909204"
+    }
+  }
+}
+
+
+GET /cots/_search
+{
+  "query": {
+    "match": {
+      "productSerialNumber": "RND_SN_999999999"
+    }
+  }
+}
+
+// When 
+GET /users/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET /accounts/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET /locations/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+POST /smartbeds/_delete_by_query
+{
+  "query": {
+    "match": {
+      "serialNumber": "RND_298909204"
+    }
+  }
+}
+
+
+DELETE /cots/_doc/12233002
+
+DELETE /stairchairs/_doc/SN_000000001 
+
+POST /cots/_delete_by_query
+{
+  "query": {
+    "match": {
+      "accountId": "9f95745a-48da-4fb8-8b99-39d4ab4db9b9"
+    }
+  }
+}
+
+
+#------------------------------------
+# Add object example
+
+POST /products/_doc
+{
+    "name": "Coffee maker",
+    "price": 64,
+    "in_stock": 10
+}
+
+# Add smartbeds example
+POST /smartbeds/_doc
+{
+         "serialNumber" : "RND_99999999",
+          "accountId" : "98188545-65fc-471d-bddb-e4dda4a376e9",
+          "siteId" : "7fa94318-276d-498a-b174-b450d53d16bf",
+          "siteName" : "Agent_Automotive_944",
+          "model" : "Gorgeous Rubber Sausages",
+          "location" : "Shoes",
+          "softwareVersion" : "v.60.24.194.98",
+          "rssi" : -79,
+          "patientPresent" : false,
+          "readiness" : "NeedsAttention",
+          "errorCondition" : "Inventore quibusdam necessitatibus sed aut dolor velit et.",
+          "bedWeight" : "Empty",
+          "updatedUtc" : "2022-08-03T11:00:52.9572345Z",
+          "recordVersion" : "1.2.2"
+}
+
+#------------------------------------
+# Replace whole object example
+
+PUT /products(stairchairs)/_doc/100 
+{
+    "name": "Toaster",
+    "price": 49,
+    "in_stock": 4
+}
+
+#------------------------------------
+# Update an object's field (or add a field to the object) example
+
+POST /products(stairchairs)/_update/100 
+{
+    "doc": {
+        "in_stock": 3
+    }
+}
+

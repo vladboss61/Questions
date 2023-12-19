@@ -1,0 +1,30 @@
+alias tf='terraform'
+alias tfa='terraform apply'
+alias tfa!='terraform apply --auto-approve'
+alias tfc='terraform console'
+alias tff='terraform fmt'
+alias tfg='terraform graph'
+alias tfi='tfenv install min-required && tfenv use min-required && terraform init'
+alias tfo='terraform output'
+alias tfp='terraform plan'
+alias tfpr='terraform providers'
+alias tfr='terraform refresh'
+alias tfsh='terraform show'
+alias tft='terraform taint'
+alias tfut='terraform untaint'
+alias tfv='terraform validate'
+alias tfw='terraform workspace'
+alias tfs='terraform state'
+alias tffu='terraform force-unlock'
+alias tfwst='terraform workspace select'
+alias tfwsw='terraform workspace show'
+alias tfssw='terraform state show'
+alias tr="echo -e '\033[0;31mDeleting [.terraform] folder\033[0m';rm -rf .terraform"
+alias gi="git submodule update --init --recursive"
+alias asd1="aws sso login --profile strykerdev1"
+alias asm="aws sso login --profile strykermaster"
+alias ass="aws sso login --profile strykersandbox"
+alias asp1="aws sso login --profile strykerprod1"
+alias asp3="aws sso login --profile strykerprod3"
+
+git submodule update --init --recursive

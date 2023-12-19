@@ -1,0 +1,49 @@
+
+The first solution will take about 3 days, and the second one can take up to 10 days. 
+If we implement the first solution, we can have [possible problems] in the future.
+====
+Could you please clarify what you would like us to do about [problem]? 
+If I understood you correctly, you would like us to... 
+What exactly do you mean by [word]?
+
+I would like to thank all of you for ....
+
+Yes, I've done that
+
+We are really sorry we can't help (because…) rather than 'We cannot help.
+
+For this to work, you/we need to…' rather than 'It must be done.
+ ==== 
+Hi Tim, Hi there Tim, Morning/Afternoon/Evening Tim, Hello again Tim
+
+I wanted to tell you that… / I am writing to tell you about ... 
+
+So glad that we’re in touch again. 
+ ==== 
+I highly recommend
+
+Thank you for your letter of March 15 ...
+
+I would be grateful if you could... / It would be helpful if you could send us ...
+
+Please let me know what action you propose to take.
+
+What would you like to do next? 
+Could you please send me ... ?
+ ==== 
+In addition, I would like to... 
+
+I'm pleased to hear that... 
+First of all, ... 
+Firstly/Secondly... 
+=======
+There seems to be a problem with the new feature. 
+
+Issue number 35402 has been resolved. 
+
+Here are the possible solutions: 
+
+We could [solution 1], or we could [solution 2]. (e.g. We could add a new button or we could redesign the whole dialog.)
+
+While running the tests, we've discovered that [something] is not working properly. 
+

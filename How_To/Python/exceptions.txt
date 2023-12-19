@@ -1,0 +1,10 @@
+BaseException is base class for all exceptiosn
+
+BaseException
+    Exception
+    SystemExit
+    GeneratorExit
+    ...
+
+The standard is that most exceptions, including custom exceptions, inharit from Exception class in python
+

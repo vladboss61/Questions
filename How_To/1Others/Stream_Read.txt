@@ -1,0 +1,24 @@
+         byte[] result = new byte[count];
+	 int read = 0;
+            do {
+                int n = stream.Read(result, numRead, count);
+                if (n == 0)
+                    break;
+                read += n;
+                count -= n;
+            } while (count > 0);
+
+
+
+
+
+
+
+
+
+                        var buffer = new byte[buffer.Length];
+                        var bytesRead = 0;
+                        while (bytesRead < buffer.Length)
+                        {
+                            bytesRead += await context.Request.Body.ReadAsync(buffer, bytesRead, buffer.Length - bytesRead);
+                        }

@@ -1,0 +1,25 @@
+$white_color: white;
+
+@mixin warning_mixin {
+    display: block;
+    background-color: red;
+}
+
+.inside_vars {
+    @include warning_mixin;
+    background-color: black;
+    width: 100%;
+}
+
+@mixin content_mixin {
+    .content_passed {
+        @content;
+        text-align: center;
+    }
+}
+
+@include content_mixin;
+
+@include content_mixin {
+        display: flex;
+}

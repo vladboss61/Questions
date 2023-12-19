@@ -1,0 +1,31 @@
+1) // GET request with body.
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  body: '123'
+};
+
+//or
+
+//GET or get
+return this.request<any>('GET', url, httpOptions as any);
+
+
+//DELETE request with body
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  body: '123'
+};
+
+2)//DELETE or delete
+this.http.request('DELETE', 'url', httpOptions)
+
+
+//or
+
+const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    body: 'your body data'
+};
+
+this.httpClient.delete(URL, httpOptions).subscribe(res => {}, err => {});

@@ -1,0 +1,2 @@
+INSERT INTO Customers (FName, LName, PhoneNumber)
+SELECT FName, LName, PhoneNumber FROM Employees

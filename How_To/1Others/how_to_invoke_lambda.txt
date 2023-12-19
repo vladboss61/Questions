@@ -1,0 +1,10 @@
+в CMD
+@echo off
+aws lambda invoke --invocation-type RequestResponse --function-name arn:aws:lambda:us-west-2:805665554982:function:fuji-d11-sync-servicemax --cli-binary-format raw-in-base64-out --payload "\"getVersion\"" lambdaVersion.txt
+type lambdaVersion.txt
+
+в PWSH
+Remove-Item lambdaVersion.txt | Out-Null
+aws lambda invoke --invocation-type RequestResponse --function-name arn:aws:lambda:us-west-2:805665554982:function:fuji-d11-sync-servicemax --cli-binary-format raw-in-base64-out --payload '\"getVersion\"' lambdaVersion.txt | Out-Null
+Get-Content lambdaVersion.txt
+Remove-Item lambdaVersion.txt | Out-Null

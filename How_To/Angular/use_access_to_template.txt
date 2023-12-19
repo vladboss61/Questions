@@ -1,0 +1,11 @@
+@ViewChild('dom', { static: true }) dom!: ElementRef;
+
+// static: true if we want to access nativeElement in onInit() 
+// othervise we should access in AfterViewInit
+
+const s1 = this.dom.nativeElement as HTMLDivElement; //HTMLDivElement is dom representation of nativeElement
+
+
+@ViewChild('dom2', { static: true}) dom2!: AComponent;
+// When we wanna access componnets of the dom AComponent -> <acomponent #dom2> <acomponent> we define just type of AComponent in property field
+this.dom.field = 'new value'

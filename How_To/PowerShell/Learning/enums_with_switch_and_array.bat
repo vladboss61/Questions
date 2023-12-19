@@ -1,0 +1,1 @@
+pwsh enums_with_switch_and_array.ps1

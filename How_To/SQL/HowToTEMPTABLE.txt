@@ -1,0 +1,8 @@
+To create a temporary table local to the session:
+CREATE TABLE #TempPhysical(...);
+
+To create a temporary table visible to everyone:
+CREATE TABLE ##TempPhysicalVisibleToEveryone(...);
+
+To create an in-memory table:
+DECLARE @TempMemory TABLE(...);

@@ -1,0 +1,1 @@
+pwsh.exe .\ps_script_root.ps1

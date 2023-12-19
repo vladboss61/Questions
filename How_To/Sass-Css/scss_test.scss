@@ -1,0 +1,14 @@
+@import "scss_vars.scss";
+
+textarea {
+    @include warning_mixin;
+    #somethign {
+        text-align: center;
+    }
+}
+
+div {
+    div {
+        background-color: $white_color;
+    }
+}

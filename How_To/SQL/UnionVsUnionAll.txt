@@ -1,0 +1,13 @@
+
+UNION joins 2 result sets while removing duplicates from the result set
+UNION ALL joins 2 result sets without attempting to remove duplicates
+
+
+
+SELECT FirstName as 'First Name', LastName as 'Last Name' FROM HR_EMPLOYEESWHERE Position = 'manager'
+UNION
+SELECT FirstName, LastName FROM FINANCE_EMPLOYEES WHERE Position = 'manager'
+
+SELECT FirstName as 'First Name', LastName as 'Last Name' FROM HR_EMPLOYEESWHERE Position = 'manager'
+UNION ALL
+SELECT FirstName, LastName FROM FINANCE_EMPLOYEES WHERE Position = 'manager'

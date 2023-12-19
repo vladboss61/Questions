@@ -1,0 +1,14 @@
+sc.exe - tool for working with windows services.
+// Create Windows Service from  binpath - path to exe file of .NET app in bin folder.
+// ".NET Windows Service Name_1" - Name.
+sc.exe create ".NET Windows Service Name_1" binpath="D:\ALevel\Workerfy\Origin.Workerfy\bin\Debug\net6.0\Origin.Workerfy.exe" 
+
+// Start created windows service by name
+sc.exe start ".NET Windows Service Name_1"
+
+
+// Stop created windows service by name
+sc.exe stop ".NET Windows Service Name_1"
+
+// Delete created windows service by name
+sc.exe delete ".NET Windows Service Name_1"

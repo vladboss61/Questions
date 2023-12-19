@@ -1,0 +1,15 @@
+1 fr - fraction of alavilable space over the container [----]
+
+2 fr - fraction of alavilable space over the container, 
+  but if we have got more than 2 items we will items with 2 fr larger than items wtih 1 fr
+
+max-content -  is grid property's value that points to make width of element equivalent to content of item. 
+	(applies with grid-template-column - only, grid-template-row - only)
+
+min-content - shrink content of text or image or something else.
+
+grid-template-column: repeate(3, min-content) 1fr //== grid-template-column: min-content min-content min-content 1fr
+
+auto-fill
+auto-fit
+minmax(first, second) for instance minmax(100px, 140px)

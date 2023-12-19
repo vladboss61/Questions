@@ -1,0 +1,32 @@
+scss preprocesor is additional step before css
+sass global tool for generating css from scss file, you can see result of generation inside scss_test.css
+
+@mixin $name_of_mixin - just simple insertion bunch of css style, properties (for instance text-align, display and so on) 
+into some tag, class or id, mixins defined globally
+
+@include $name_of_mixin - pass content of mixin into specific css tag class or other selector directly.
+mixins can get refference to other mixin
+@mixin $name_of_mixin_first {
+	display: block;
+}
+@mixin $name_of_mixin_second {
+	@include $name_of_mixin_first;
+}
+
+@content - pass content of executed mixin into real body of mixin 
+exemple:
+
+@mixin $content_mixin {
+    div {
+	@content
+	}
+}
+
+@include $content_mixin {
+	dispaly: block;
+}
+
+result after sass ./sass.scss ./sass.css
+div {
+	dispaly: block;
+}

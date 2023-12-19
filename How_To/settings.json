@@ -1,0 +1,38 @@
+{
+    "dotnet": {
+        "dotnet_remote": "dotnet run --launch-profile 'Development.Remote'",
+        "dotnet_local": "dotnet run --launch-profile 'Development.Local'"
+    },
+    "docker": [
+	"docker exec -it 'name_of_conteiner' bash | pwd" // Connect to running docker container in interactive mode -it flag does this. // Also analog to this in time when container starting is   "docker run --name 'name_of_conteiner' --rm -i -t ubuntu bash"- may be
+        "docker buind . --tag 'name_of_tag' " //  build docker image with tag
+	"docker run -d -p 80:80 'one_of_tag_or_generated_image_id'" // d - To start a container in detached mode, you use -d=true or just -d option. By design, containers started in detached mode exit when the root process used to run the container exits, unless you also specify the --rm option. If you use -d with --rm, the container is removed when it exits or when the daemon exits, whichever happens first.
+	"docker images -a" - List of whole images.
+	"docker start/stope" -  start/stop running/stopped container.
+	"docker pull/push" pull/push image to docker repository.
+	"docker rm 'name_of_container' -f" -f - force, -remove running container.
+    ],
+    "git": [
+	"git config": ["git config –global user.name “[name]”", "git config –global user.email “[email address]”"]
+	"git remote --all" "shows all remote and local branches."
+	"git stash" : ["git stash", "git stash pop", "git stash list", "git stash drop"] - Add uncommied changes to the stash. 
+	"git add *" == "git add ." == "git add -A"
+	"git add [file_path1] [file_path2] [file_path3]"
+	"git reset [file_path]" -- unstage [file]
+	"git reset HEAD~1" -- uncommit the lastest commit on current branch to untracked state.
+	"git clean -n -d" -- remove untracked files and dirs.
+	"git patch" -- see docs by resource https://git-scm.com/docs/git-format-patch.
+	"git merge --abort" - UNDO merged (or merge in conflict state).
+     	"git checkout (SHA1 hash (if we want to see somthing on specific commit) or branch (just change branch))",
+	"git pull/push",
+	"git log",
+	"git clone (repo_name SSH OR HTTP)"
+	"git reset HEAD~n" (n is any value from 1~n that indicates commit)
+	"- git merge test - Merge test branch to current.
+	 - git revert test - Revert test branch from current and create revert commit on current branch.
+	       # Now we can try to revert 'Created Revert Commit' of previous step.
+	 - git revert HEAD~1..HEAD - Revert last 1 commit (In this case revert created "revert" commit)"
+	"git cherry-pick hash_commit_A hash_commit_B" - Add some commits to the top of the current branch:.
+	"git diff --staged" (Without flag shows differences unstaged state)
+     ]
+}

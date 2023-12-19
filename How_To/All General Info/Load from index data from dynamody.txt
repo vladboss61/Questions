@@ -1,0 +1,41 @@
+     samlUserEmailDomainName - primary key (partition key)
+     accountGuid - index
+private static string GetValueOrEmpty(Dictionary<string, AttributeValue> dictionary, string key)
+        {
+            return dictionary.TryGetValue(key, out AttributeValue value) ? value.S : string.Empty;
+        }
+
+        private async Task<DbAccountSecuritySettings> RetrieveDbAccountSecuritySettingsAsync(string samlUserEmailDomainName, CancellationToken token)
+        {
+            var userRolesRequest = new QueryRequest
+            {
+                TableName = $"{_options.DynamoDbTablePrefix}{DbTableNames.AccountsSecuritySaml}",
+                IndexName = "samlUserEmailDomainName-accountGuid-index",
+                KeyConditionExpression = "samlUserEmailDomainName = :samlUserEmailDomainName and accountGuid > :accountGuid",
+                ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+                {
+                    { ":samlUserEmailDomainName", new AttributeValue { S = samlUserEmailDomainName } },
+                    { ":accountGuid", new AttributeValue { S = "!" } }
+                },
+                ScanIndexForward = true
+            };
+            QueryResponse queryResponse = await _client.QueryAsync(userRolesRequest, token);
+            if (queryResponse.Count == 0)
+            {
+                return null;
+            }
+
+            Dictionary<string, AttributeValue> dictionary = queryResponse.Items[0];
+            return MapToDbAccountSecuritySettings(dictionary);
+        }
+
+        private DbAccountSecuritySettings MapToDbAccountSecuritySettings(Dictionary<string, AttributeValue> dictionary)
+        {
+            return new DbAccountSecuritySettings
+            {
+                AccountGuid = GetValueOrEmpty(dictionary, "accountGuid"),
+                Certificate = GetValueOrEmpty(dictionary, "certificate"),
+                IdentityProviderSignInUrl = GetValueOrEmpty(dictionary, "identityProviderSignInUrl"),
+                SamlUserEmailDomainName = GetValueOrEmpty(dictionary, "samlUserEmailDomainName")
+            };
+        }

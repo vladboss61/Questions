@@ -1,0 +1,23 @@
+Is it wrong to place the <script> tag after the </body> tag?
+
+Not Correct in browsers like IE
+<html>
+  ....
+  <body>
+     ....
+  </body>
+  <script type="text/javascript" src="theJs.js"></script>
+</html>
+
+Correct Everywhere
+<html>
+  ....
+  <body>
+     ....
+     <script type="text/javascript" src="theJs.js"></script>
+  </body>
+</html>
+
+It won't validate outside of the <body> or <head> tags. It also won't make much difference — unless
+you're doing DOM manipulations that could break IE before the body element is fully loaded — to putting it just before the closing </body>.
+Only comments and the end tag for the html element are allowed after the end tag for the body.

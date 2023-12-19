@@ -1,0 +1,12 @@
+In SQL, you use date and time data types to store calendar information. These data types include the time, date,
+smalldatetime, datetime, datetime2, and datetimeoffset. Each data type has a specific format.
+
+Data type Format:
+
+time hh:mm:ss[.nnnnnnn]
+date YYYY-MM-DD
+smalldatetime YYYY-MM-DD hh:mm:ss
+datetime YYYY-MM-DD hh:mm:ss[.nnn]
+datetime2 YYYY-MM-DD hh:mm:ss[.nnnnnnn]
+datetimeoffset YYYY-MM-DD hh:mm:ss[.nnnnnnn] [+/-]hh:mm
+The DATENAME function returns the name or value of a specific part of the date.

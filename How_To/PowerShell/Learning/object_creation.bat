@@ -1,0 +1,1 @@
+pwsh.exe .\object_creation.ps1 -ComputerName "Vlad's PC" -SpecialNumber 10

@@ -1,0 +1,83 @@
+RuleSet.
+- Partion Key of the table is always part of the index
+- Sort Key of the table is always part of the index. (if table has Sort Key.)
+
+1) Example index with partition Key and Sort Key.
+
+accountGuid-assetId-index - index in table account-erp-work-orders.
+accountGuid Partition key of the index
+assetId - SortKey of the index
+
+//accountGuid = :v_accountGuid and assetId = :v_assetId // === partitionKey = v_accountGuid sortKey = v_assetId of the index
+
+// Find all work orders referring to that asset
+                var workOrdersRequest = new QueryRequest
+                {
+                    TableName = $"{_dynamoDbTablePrefix}{DbTableNames.WorkOrders}",
+                    IndexName = "accountGuid-assetId-index",
+                    KeyConditionExpression = "accountGuid = :v_accountGuid and assetId = :v_assetId",
+                    ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+                    {
+                        { ":v_accountGuid", new AttributeValue { S = dbAsset.AccountGuid } },
+                        { ":v_assetId", new AttributeValue { S = dbAsset.Id } }
+                    },
+                    ScanIndexForward = true,
+                    ExclusiveStartKey = startKey
+                };
+
+
+2) Example with index accountGuidAssetIdIsVisible-serviceDateWorkOrderId // partitionKey-sortkey
+//accountGuidAssetIdIsVisible = :v_accountGuidAssetIdIsVisible and serviceDateWorkOrderId = :v_serviceDateWorkOrderId // === partitionKey = :v_accountGuidAssetIdIsVisible sortKey = v_serviceDateWorkOrderId of the index
+
+// Find all work orders referring to that asset
+                var workOrdersRequest = new QueryRequest
+                {
+                    TableName = $"{_dynamoDbTablePrefix}{DbTableNames.WorkOrders}",
+                    IndexName = "accountGuid-assetId-index",
+                    KeyConditionExpression = "accountGuidAssetIdIsVisible = :v_accountGuidAssetIdIsVisible and serviceDateWorkOrderId = :v_serviceDateWorkOrderId",
+                    ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+                    {
+                        { ":v_accountGuidAssetIdIsVisible", new AttributeValue { S = dbAsset.AccountGuidAssetIdIsVisible } },
+                        { ":v_serviceDateWorkOrderId", new AttributeValue { S = dbAsset.ServiceDateWorkOrderId } }
+                    },
+                    ScanIndexForward = true,
+                    ExclusiveStartKey = startKey
+                };
+
+
+3) Example with index userId-index // partitionKey only
+Table has partition key (accountId) and sort key (userId) and they are part of the index
+index has - accountId, userId
+
+Partition Key of index is userId
+
+        var indexRequest = new QueryRequest
+        {
+            TableName = $"{_options.DynamoDbTablePrefix}{DbTableNames.Users}",
+            IndexName = DbTableNames.UsersIndexUserId,
+            KeyConditionExpression = $"{DbConstants.UserId} = :userId",
+            ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+            {
+                { ":userId", new AttributeValue { S = userId } }
+            },
+            ScanIndexForward = true
+        };
+
+
+
+4) Example with index userName-index // partitionKey only
+Table has partition key (accountId) and sort key (userId) and they are part of the index
+index has - accountId, userId, userName
+Partition Key of index is userName
+
+        var indexRequest = new QueryRequest
+        {
+            TableName = $"{_options.DynamoDbTablePrefix}{DbTableNames.Users}",
+            IndexName = DbTableNames.UsersIndexUserId,
+            KeyConditionExpression = $"{DbConstants.UserNameIndex} = :userName",
+            ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+            {
+                { ":userName", new AttributeValue { S = userName } }
+            },
+            ScanIndexForward = true
+        };

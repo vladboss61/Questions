@@ -1,0 +1,2 @@
+Custome tool - PublicResXFileCodeGenerator (Generates classes with public class StringResx`)
+Custome tool - PrivateResXFileCodeGenerator (Generates classes with `private class StringResx`)

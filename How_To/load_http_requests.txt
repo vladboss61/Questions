@@ -1,0 +1,13 @@
+-n 100 // number of requests
+-c 10 // number of thread, in concurrent batches of 10
+
+ab.exe -n 100 -c 10 http://localhost:5000
+
+Execute 100 HTTP POST requests to a URL, using a JSON payload from a file:
+ab.exe-n 100 -T application/json -p //cdn.thegeekdiary.com/path/to/file.json http://localhost:5000
+
+
+Use HTTP [K]eep Alive, i.e. perform multiple requests within one HTTP session:
+ab.exe -k http://localhost:5000
+
+Teast with GET request to server with await Task.Delay(2000) vs Thread.Sleep(2000)

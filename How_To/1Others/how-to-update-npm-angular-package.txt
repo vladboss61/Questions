@@ -1,0 +1,18 @@
+// List of All global packages.
+npm list -g
+
+//First of all
+npm i -g npm
+npm i -g @angular/cli
+
+//Then
+1) ncu
+2) ng update @angular/core @angular/cli @ngrx/store if got error execute ->
+* ng update @angular/core @angular/cli  - update angular (and all other packages)
+* ng update @ngrx/store - update ngrx (and all other ngrx packages)
+3) ng update @angular/core @angular/cli @ngrx/store --force (flag --force run migration scripts anyway)
+4) ng build --configuration "production" //to test 
+5) ng update other_packages1 other_packages2 ...
+6) ng build --configuration "production"
+7) ng update typescript //should be updated last
+8) npm run lint 

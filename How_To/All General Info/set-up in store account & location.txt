@@ -1,0 +1,31 @@
+ this.accountService.getAccountById$(user.accountId)
+          .subscribe((userAccount: Account) => {
+            this.store.dispatch(selectedAccountAndLocationChangedAction({
+              accountId: user.accountId,
+              accountNumber: userAccount.accountNumber,
+              accountName: userAccount.accountName,
+              accountCountry: userAccount.physicalAddress?.country || 'US',
+              locationId: '',
+              userPermissions: []
+            }));
+          }, err => {
+            this.snackbarService.handleError(err);
+          });
+
+
+вместо user.accountId пишешь -> "12345"
+accountId: user.accountId,
+accountNumber: userAccount.accountNumber, -> из нетворк табы или базы лайфнета взять 
+accountName: userAccount.accountName
+
+`WOSEM` account data
+accountCountry: "GU"
+accountId: "e3b04851-72b8-4d56-8271-c4357be49a32"
+accountName: "WOSEM"
+accountNumber: "01151474"
+
+`WOSEM2` account data
+accountCountry: "US"
+accountId: "cc6de319-f89d-49f3-bffc-60b35c80427e"
+accountName: "WOSEM2"
+accountNumber: "01151475"
