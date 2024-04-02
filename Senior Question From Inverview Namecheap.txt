@@ -1,0 +1,81 @@
+1 паттерн - транзакшен аутбокс / Saga паттерн
+
+2 маршалинг (Marshaling) C#
+
+3  ****** EF more deeply ******
+3.1 sql connections with ssl and tcp/ip under
+
+4 SQS fifo vs Standard for ordering of messages (***** Перечетать как SQS сообещение может возвращаться в очередь если сервер упал обьрадатывая его + почитать про DEAD letter queue *****)
+
+5 ADO net thread pool of connections (when invoke dispose connection retunes to pool)
+
+6 Thread poop size - Count of Cores * 2 (Depends of platform)
+
+7 {
+...
+	var t = GetAsync() - creates new thread when we have not await keyword.
+...
+}
+
+8 ThreadPool will be create new thread when all are used by someone.
+9 Tasks used ThreadPool
+
+10 Every Asp net request used another Thread to execute (если будет 1000 запросов на Kestrel сервер, будет создана 1000 потоков +- для выполенния всех запросов, если асинхронно - то будет меньше)
+
+11 Size of Execution Stack is 1MB
+
+12 Kafka would be nice to learn.
+
+13 ****** Redis as shared cache ******
+14 lock(a) { lock(a) {} } - no dead lock because of sync object that has one threadid
+
+15 when object is created - { syncThreadId: int (or long), other fields} syncThreadId - id of thead where that object was created.
+16 syncThreadId used in lock 
+
+17 recursive structure 
+
+CS0523 error
+18 struct Node { //vs class
+	private left Node
+}
+
+19 When a self referential struct type is made, it contains a copy of the same type as a member. However, that member then has another copy, which continues recursively. As a result of the cycle, the size of the type cannot be determined and CS0523 is emitted.
+
+20 Transaction Isolation Lvl
+
+21 await operator can no be used in lock { } block
+
+22 REINDEX in SQL rebuilds an index using the data stored in the index's table, replacing the old copy of the index. There are several scenarios in which to use REINDEX:
+
+An index has become corrupted, and no longer contains valid data. Although in theory this should never happen, in practice indexes can become corrupted due to software bugs or hardware failures. REINDEX provides a recovery method.
+
+An index has become “bloated”, that is it contains many empty or nearly-empty pages. This can occur with B-tree indexes in PostgreSQL under certain uncommon access patterns. REINDEX provides a way to reduce the space consumption of the index by writing a new version of the index without the dead pages. See Section 25.2 for more information.
+
+23 UpdateTime in field used to sync object and prevent multy updates.
+
+
+
+24
+
+React 
+
+1 useEffect(() => {
+	console.log(.....)
+	return () => { console.log("clear")}
+
+});
+
+2 when return function is executed - on every time of rerender.
+
+3 pair of React.memo(Component) and React.useCallback(...)
+4 React.forwardRef(Component) - using that we can apply <Component ref={c_ref}> to our Component
+5 JS clouse and [[scopes]] in function object.
+6 how to find this in arrow function and function() { }
+
+
+
+
+
+
+
+
