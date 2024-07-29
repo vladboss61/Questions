@@ -1,0 +1,6 @@
+(parallelism) параллелизм - выполнение задач полностью независимо друг от друга (на нескольких процессорах (ядрах)) (multitasking on single processor)
+(cuncurrency) - выполнение задач на 1м процессоре переключаясь между ними (none-related tasks)
+
+`In Threads system is applied Time Slicing Algorithm for cuncurrent execution of threads.` in C# Tasks and threads behind.
+
+Time Slicing in CPU scheduling так же применимо в kernel schedule (планировщик задач) который переключается между задачами
