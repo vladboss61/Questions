@@ -16,12 +16,13 @@ hexadecimal number.
 ===================================================================================
 OOD / OOP
 ===================================================================================
-1) The four principles of object-oriented programming (abstraction, inheritance, encapsulation, and polymorphism). --
-2) SOLID - 
-3) Abstract class vs Interface. +-
-4) Sealed - 
-5) Extension methods-
-6) Method vs static method, difference-
+1) The four principles of object-oriented programming (abstraction, inheritance, encapsulation, and polymorphism).
+2) SOLID
+3) Abstract class vs Interface.
+4) Sealed
+5) Extension methods
+6) Method vs static method, difference
+7) private, protected, public, internal
 
 Truth table
 ===================================================================================
@@ -55,12 +56,12 @@ Boolean logic (truth tables)
 ===================================================================================
 C#
 ===================================================================================
-0) Value Types vs Reference Types. +-
+0) Value Types vs Reference Types.
 1) & vs &&
 2) 
-    byte b; //8 bit +
+    byte b; //8 bit
     short s; //2 byte
-    int i; //4 byte + 
+    int i; //4 byte
     long l; //8 byte
 3) 
 
@@ -73,7 +74,7 @@ private static void Main(string[] args) +
     Console.WriteLine($"a={a} b={b}");
 }
 
-private static void Main(string[] args)-
+private static void Main(string[] args)
 {
     var a = 10;
     var b = 1;
@@ -81,20 +82,25 @@ private static void Main(string[] args)-
     Console.WriteLine($"b={b} c={c}");
 }
 
-4) int x = 0x21; -  ~ // 16 system -> 0x21 = 2 * 16^1 + 1 * 16^0 = 32 + 1 = 33 in 10 system+
+(hex)
+4) int x = 0x21;// 16 system -> 0x21 = 2 * 16^1 + 1 * 16^0 = 32 + 1 = 33 in 10 system
+
+(binary)
 5)
  int y = 5 & 1;// 1   // 5 -> 101 = (1 * 2^2) + (0 * 2^1) + (1 * 2^0) = 5 || 101 & 001 = 001 == 1 
  int y_y = 5 | 1; //   // 5; 
  int z = 5 | 2; 101 | 010 == 7
+
+(binary shift)
 6) int x = 5 >> 1; +
 7) int x = a ^ b ^ b;
 
-8) IDisposable (https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)-----
+8) IDisposable (https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose)
 9) Managed vs Unmanaged resources
-10) Boxing/Unboxing, - 
+10) Boxing/Unboxing,
 11) using() {} 
 12) try-catch-finally, does finally always work? what about exception in catch? 
-13) immutable strings / StringBuilder ~ +-
+13) immutable strings / StringBuilder
 
 string s = ""; 
 for(int i=0;i<1000000;i++) {
@@ -103,25 +109,25 @@ for(int i=0;i<1000000;i++) {
 // Drawbacks
 
 14) is c# string reference type? what about TypeScript?
-15) continue vs break in loops +-
+15) continue vs break in loops
 16) Reflection & Attributes
 17) Delegate vs Event
 
 ===================================================================================
 Algorithms
 ===================================================================================
-1) List vs Array +-
+1) List vs Array
 2) Stack
 3) Dictionary (benefits)
 4) Tree
-5) Linear Search vs Binary Search +
+5) Linear Search vs Binary Search
 
 ===================================================================================
 .NET Core
 ===================================================================================
 1)
 "ASPNETCORE_ENVIRONMENT": "Development"
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) +
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment()) { }
             else { }
@@ -129,7 +135,7 @@ Algorithms
 
 
 
-        public void ConfigureServices(IServiceCollection services) -
+        public void ConfigureServices(IServiceCollection services)
         {
         }
 
@@ -143,10 +149,10 @@ Algorithms
 
 
 2)
-            services + подсмотрел 
+            services
                 .AddTransient<ICotRenderer, ExcelCotRenderer>()-
-                .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()-
-                .AddScoped<ITokenSource, HttpContextTokenSource>();-
+                .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
+                .AddScoped<ITokenSource, HttpContextTokenSource>();
 
 ===================================================================================
 CSS and web layout
@@ -162,6 +168,7 @@ CSS and web layout
     </div>
   </div>
 </body>
+
 2) colors #ff0000, #cccccc, #000000
 colors #0000ff, #000000 (black), #ffffff (white), #cccccc
 
@@ -176,14 +183,14 @@ box-sizing: border-box; //in Boostrap
 vs
 box-sizing: content-box;
 
-5) em vs rem -
+5) em vs rem
 6) Multiple classes on an element?
 
 <div></div> please apply class myClass to the div
 <div class="aaa"></div>
 <div class="aaa bbb"></div>
 
-7) Difference + 
+7) Difference
 .aaa {}
 #aaa {}
 aaa {}
@@ -193,11 +200,9 @@ aaa {}
 .bbb { font-weight: bold; }
 .aaa.bbb { color: lime; }
 
-9) +--
+9)
 visibility: hidden 
 display: none
-
-
 
 
 ===================================================================================
@@ -337,7 +342,7 @@ const routes: Routes = [
     }}
 
 
-27) Arrow Function vs function keyword in JS ? -
+27) Arrow Function vs function keyword in JS ?
 
 
 ===================================================================================
@@ -360,12 +365,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 ))}
 
 
-
-
 ===================================================================================
 REST & HTTP
 ===================================================================================
-1) CORS (Cross-Origin Resource Sharing) +-
+1) CORS (Cross-Origin Resource Sharing)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Origin: <origin>
 Access-Control-Allow-Origin: null
@@ -400,13 +403,13 @@ Networking
 
 
 2) How many bits in 1 byte?
-3) Max number in a byte? 2^8 =
+3) Max number in a byte? 2^8 = 256
 4) Cookies - what are they? How do they come to our client computer? Are they stored on a client or travel back to the server? -
 
 
 
 ===================================================================================
-Cryptography -
+Cryptography
 ===================================================================================
 1) What is a one way hash function?
 2) Why we store hash instead of a plain password in the database?
@@ -415,7 +418,9 @@ Cryptography -
 5) Asymmetric keys (public key vs private key) 
 6) What are prime numers? (1, 2, 3, 5, 7, 11, 13, 17)
 
-7) Token authentication/authorization
+7) (Bearer) Token authentication/authorization
+8) base32, base64
+9) (Basic) Credentials authentication base64(user_name):base64(password)
 
 
 ===================================================================================
@@ -483,4 +488,25 @@ git fetch
 Architecture
 ===================================================================================
 1) CQRS 
+
+DevOps:
+
+Azure/AWS
+
+1) Azure Function and AWS Lambda cold start what is it ?
+2) Load balancer what is it
+3) Web server (Kestrel, nginx, iis, apache)
+3) Azure Bus, Azure Topic / SQS (simple queue service), SNS (simple notification service)
+4) EC2 / Fargate
+5) Hosting using on-premiss Azure VM, Azure Kuber, Azure App services, Azure function, Azure storage / EC2, ECS (elastic container services), EKS (kuber), Aws lambda, S3
+
+Linux:
+1) ubuntu, debian, fedora
+2) docker / dockerfile, docker-compose
+3) gitlab.yaml
+4) ssh
+5) terraform
+
+
+
 
